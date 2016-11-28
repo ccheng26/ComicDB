@@ -1,0 +1,27 @@
+{
+  "name": "comicdb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ccheng26/ComicDB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ccheng26/ComicDB/issues"
+  },
+  "homepage": "https://github.com/Ccheng26/ComicDB#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.7",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.4",
+    "pg-promise": "^5.4.4"
+  }
+}
