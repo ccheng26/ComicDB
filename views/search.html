@@ -3,19 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Comic DB</title>
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Oswald" rel="stylesheet">
+  <link href="../public/style.css" rel="stylesheet">
 </head>
 <body>
-  <p class="prompt">What character are you looking for?</p>
-  <form class="pure-form">
-    <input id="character_entered" type="text">
-    <button id="submit_button" type="submit">Search</button>
+<header id="header" class="header"> Comic DB
+  <form class="inputForm">
+    <input id="characterEntered" class ="searchIn" type="text">
+    <button id="submitButton" type="submit">Search</button>
   </form>
-
-  <p id="information"></p>
-  <p id="des"></p>
-  <p class="date"></p>
-  <script src="public/jquery.js"></script>
-  <script src="public/config.js"></script>
-  <script src="public/script.js"></script>
+</header>
+<div class="resultContainer">
+  <div class="results">
+  <div class="profile">
+      <div id="profileImg">
+      </div>
+      <p id="attrib"></p>
+    </div>
+    <h1 id= "charTitle"></h1>
+    <p id="information">
+    </p>
+    <p id="des">
+    </p>
+</div>
+  <script src="../public/jquery.js"></script>
+  <script src="../public/config.js"></script>
+  <script src="../public/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+body{
+  margin: 0;
+  padding:0;
+  background-color: #FFBA08;
+  font-family: 'Oswald', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* header formatting */
+.header{
+  text-align: left;
+  padding: 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 3.000em;
+  color: #E6E500;
+  background-color: #FF0000;
+}
+.inputForm{
+  float: right;
+/*   padding-bottom: 230px; */
+}
+/*   search field picture and displau */
+.searchIn{
+  font-family: 'Oswald', sans-serif;
+  background-image: url('mag.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 24px;
+  font-size: 14pt;
+  border-radius: 5px;
+}
+#submitButton{
+  font-size: 14pt;
+  border-radius: 5px;
+}
+.resultContainer{
+  padding: 10px;
+}
+/* profile design, will float left */
+.profile{
+  float: right;
+  padding: 10px;
+}
+#profileImg{
+  height: 400px;
+  width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
