@@ -36,22 +36,17 @@ console.log("script loaded")
     //profile data
     var realName= data.results[0].real_name;
     var aliases= data.results[0].aliases;
+    aliases = aliases.replace(/\r\n/g, ", ");
+    //https://appendto.com/2016/02/replace-spaces-underscores-javascript/ replacing items in a string
     var dob= data.results[0].birth;
-    // var creators= data.results[0].creators;
     var publisher= data.results[0].publisher.name;
-    var attribs= [realName, aliases, dob, publisher];
-    // $.each(data.results,function(i,val){
-    //   var para= val.deck
-    //   console.log(para)
-    // })
-    console.log(description)
     $('#charTitle').html(nameSearch);
     $('#information').html(overview);
-    $('#des').append(description);
-    // $.each(attribs, function(i,val){
-    //   var $attribsData= $('<td>' +val + '</td>');
-    //   ('tr').append(#attribsData);
-    // })
+    $('#des').html(description);
+    $('#realName').html("Real Name: " + realName);
+    $('#aliases').html("Aliases: " + aliases);
+    $('#dob').html("DOB: "+ dob);
+    $('#publisher').html("Publisher: " + publisher);
   };
   //call search here
   addAJAXFunction()

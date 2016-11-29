@@ -40,9 +40,12 @@ body{
 .profile{
   float: right;
   padding: 10px;
+  border: 2px double black;
+  width: 220px;
+ /*  height: 600px; */
 }
 #profileImg{
-  height: 400px;
+  height: 200px;
   width: 200px;
   background-size: contain;
   background-repeat: no-repeat;
