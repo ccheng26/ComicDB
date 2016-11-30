@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comic DB</title>
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Oswald" rel="stylesheet">
+  <link href="../public/style.css" rel="stylesheet">
+</head>
+<body>
+<header id="header" class="header"> Comic DB
+  <form class="inputForm">
+    <input id="characterEntered" class ="searchIn" type="text">
+    <button id="submitButton" type="submit">Search</button>
+  </form>
+</header>
+<div class="resultContainer">
+  <div class="border-container">
+    <h1>Welcome to Comic DB!</h1>
+    <br>
+    {{#logged_in}}
+    <h4>Welcome {{email}}!</h4>
+    <p>Here is a thing!</p>
+  </div>
+  <p>Another Thing!</p>
+  <a href="/logout">Logout!</a>
+</div>
+        {{/logged_in}}
+        {{^logged_in}}
+<form action="/login" method="post">
+
+<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+<input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
+
+<div class="resultContainer">
+  <p>Email</p>
+  <div>
+    <input name="email" type="text" class="inputStuff" id="inputEmail" placeholder="Email">
+  </div>
+  <p>Password</p>
+  <div>
+    <input name="password" type="password" class="inputStuff" id="inputPassword" placeholder="Password">
+  </div>
+  <button type="submit" class="buttonLog">Login!</button>
+</div>
+<p>Not a member? <a href="/signup">Sign Up!</a></p></div> {{/logged_in}}
+
+
+</div>
+  <script src="../public/jquery.js"></script>
+  <script src="../public/config.js"></script>
+  <script src="../public/script.js"></script>
+</body>
+</html>

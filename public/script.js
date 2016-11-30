@@ -47,7 +47,28 @@ console.log("script loaded")
     $('#aliases').html("Aliases: " + aliases);
     $('#dob').html("DOB: "+ dob);
     $('#publisher').html("Publisher: " + publisher);
+    var toLinks = $('a')
+    $.each(function(index, el) {
+      // console.log(el)
+      if ( ('a') == $("a[href^='localhost'")) {
+        // $(toLinks).attr('href', 'http://www.comicvine.com/');
+        console.log(el)
+        ('a').css('background-color', 'red');
+      };
+
+    });
+    //get all link elements (with jquery, will return array)
+    //loop over the array, check if it starts with comicvine, and if not, fix it.
   };
   //call search here
   addAJAXFunction()
+$('#save').click(function(event) {
+  /* save info to db in post route*/
+});
+
+
+
+
+
+
 })
