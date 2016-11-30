@@ -1,8 +1,13 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
-	name VARCHAR(25),
-	email VARCHAR(25),
-	password VARCHAR(25),
+	email VARCHAR(50) UNIQUE,
+	password_digest VARCHAR(255),
 	issues VARCHAR(400)
+);
+DROP TABLE IF EXISTS searches;
+CREATE TABLE searches(
+	id SERIAL PRIMARY KEY,
+	emailid VARCHAR(50) UNIQUE,
+	 VARCHAR(255)
 );

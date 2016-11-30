@@ -8,13 +8,38 @@
 </head>
 <body>
 <header id="header" class="header"> Comic DB
+<div class="resultContainer">
+  <div class="results">
+    <div class="profile">
+      <div id="profileImg">
+      </div>
+        <p id="realName" class = "prof"> Real Name:
+        </p><hr>
+        <p id="aliases" class = "prof"> Aliases:
+        </p><hr>
+        <p id="dob" class = "prof"> DOB:
+        </p><hr>
+        <p id="publisher" class = "prof"> Publisher:
+        </p>
+        <button type="button" id= "save">Save Info</button>
+    </div>
+    <h1 id= "charTitle"></h1>
+    <p id="information">
+    </p>
+    <p id="des">
+    </p>
+  </div>
+</div>
+
   <form class="inputForm">
     <input id="characterEntered" class ="searchIn" type="text">
     <button id="submitButton" type="submit">Search</button>
   </form>
 </header>
 
-<div class="resultContainer">
+<form class= "log" action ="/signup" method ="post">
+<div class="inputBox">
+
   <p>Email</p>
   <div>
     <input name="email" type="text" class="inputStuff" id="inputEmail" placeholder="Email">
@@ -25,8 +50,7 @@
   </div>
   <button type="submit" class="buttonLog">Join!</button>
 </div>
-
-
+</form>
   <script src="../public/jquery.js"></script>
   <script src="../public/config.js"></script>
   <script src="../public/script.js"></script>

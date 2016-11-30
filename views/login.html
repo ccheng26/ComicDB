@@ -13,8 +13,29 @@
     <button id="submitButton" type="submit">Search</button>
   </form>
 </header>
-
 <div class="resultContainer">
+  <div class="results">
+    <div class="profile">
+      <div id="profileImg">
+      </div>
+        <p id="realName" class = "prof"> Real Name:
+        </p><hr>
+        <p id="aliases" class = "prof"> Aliases:
+        </p><hr>
+        <p id="dob" class = "prof"> DOB:
+        </p><hr>
+        <p id="publisher" class = "prof"> Publisher:
+        </p>
+        <button type="button" id= "save">Save Info</button>
+    </div>
+    <h1 id= "charTitle"></h1>
+    <p id="information">
+    </p>
+    <p id="des">
+    </p>
+  </div>
+</div>
+<div class="inputBox">
   <p>Email</p>
   <div>
     <input name="email" type="text" class="inputStuff" id="inputEmail" placeholder="Email">
@@ -23,9 +44,10 @@
   <div>
     <input name="password" type="password" class="inputStuff" id="inputPassword" placeholder="Password">
   </div>
-  <button type="submit" class="buttonLog">Join!</button>
+  <button type="submit" class="buttonLog">Log In!</button>
 </div>
 
+Don't have an account? <a href ="/signup">Sign Up!</a>
 
   <script src="../public/jquery.js"></script>
   <script src="../public/config.js"></script>

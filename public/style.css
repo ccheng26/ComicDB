@@ -35,6 +35,10 @@ body{
 }
 .resultContainer{
   padding: 10px;
+  display: none;
+}
+.inputBox{
+  padding: 10px;
 }
 /* profile design, will float left */
 .profile{

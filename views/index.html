@@ -13,7 +13,7 @@
     <button id="submitButton" type="submit">Search</button>
   </form>
 </header>
-<div class="resultContainer">
+<div class="inputBox">
   <div class="border-container">
     <h1>Welcome to Comic DB!</h1>
     <br>
@@ -27,11 +27,29 @@
         {{/logged_in}}
         {{^logged_in}}
 <form action="/login" method="post">
-
-<label for="inputEmail" class="col-lg-2 control-label">Email</label>
-<input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
-
 <div class="resultContainer">
+  <div class="results">
+    <div class="profile">
+      <div id="profileImg">
+      </div>
+        <p id="realName" class = "prof"> Real Name:
+        </p><hr>
+        <p id="aliases" class = "prof"> Aliases:
+        </p><hr>
+        <p id="dob" class = "prof"> DOB:
+        </p><hr>
+        <p id="publisher" class = "prof"> Publisher:
+        </p>
+        <button type="button" id= "save">Save Info</button>
+    </div>
+    <h1 id= "charTitle"></h1>
+    <p id="information">
+    </p>
+    <p id="des">
+    </p>
+  </div>
+</div>
+<div class="inputBox">
   <p>Email</p>
   <div>
     <input name="email" type="text" class="inputStuff" id="inputEmail" placeholder="Email">

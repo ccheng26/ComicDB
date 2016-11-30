@@ -40,6 +40,7 @@ console.log("script loaded")
     //https://appendto.com/2016/02/replace-spaces-underscores-javascript/ replacing items in a string
     var dob= data.results[0].birth;
     var publisher= data.results[0].publisher.name;
+    $('.resultContainer').css('display', 'block');
     $('#charTitle').html(nameSearch);
     $('#information').html(overview);
     $('#des').html(description);
@@ -52,8 +53,6 @@ console.log("script loaded")
       // console.log(el)
       if ( ('a') == $("a[href^='localhost'")) {
         // $(toLinks).attr('href', 'http://www.comicvine.com/');
-        console.log(el)
-        ('a').css('background-color', 'red');
       };
 
     });
