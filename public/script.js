@@ -21,6 +21,7 @@ console.log("script loaded")
       var $name = $('input').val();
       getData($name);
       console.log($name);
+      $('.inputBox').addClass('hide');
     })}
   //changes text to display character data and picture
   var handleResponse = function(data){
@@ -40,7 +41,8 @@ console.log("script loaded")
     //https://appendto.com/2016/02/replace-spaces-underscores-javascript/ replacing items in a string
     var dob= data.results[0].birth;
     var publisher= data.results[0].publisher.name;
-    $('.resultContainer').css('display', 'block');
+
+    $('.resultContainer').removeClass('hide');
     $('#charTitle').html(nameSearch);
     $('#information').html(overview);
     $('#des').html(description);
@@ -48,25 +50,52 @@ console.log("script loaded")
     $('#aliases').html("Aliases: " + aliases);
     $('#dob').html("DOB: "+ dob);
     $('#publisher').html("Publisher: " + publisher);
-    var toLinks = $('a')
-    $.each(function(index, el) {
-      // console.log(el)
-      if ( ('a') == $("a[href^='localhost'")) {
-        // $(toLinks).attr('href', 'http://www.comicvine.com/');
-      };
 
+     /* save info to db in post route*/
+    $('#save').click(function(event) {
+      var saveData = {
+          name: nameSearch,
+          image: imageData
+        }
+      console.log(saveData)
+      $.ajax({
+        url: '/save',
+        method: 'post',
+        data: saveData
+      })
     });
+
+    $('#home').click(function(event) {
+      window.location.replace("/home");
+
+    //   // location.reload();
+    //   $('.resultContainer').removeClass('hide');
+    //     $('.inputBox').css('display','block');
+    //     console.log('go')
+
+    //   $.ajax({
+    //     url: '/home',
+    //     method: 'get',
+    //     success: function(){
+    //       window.location.href= "localhost:3000/home"
+    //     }
+    // })
+  });
+
+    // var toLinks = $('a')
+    // $.each(function(index, el) {
+    //   // console.log(el)
+    //   if ( ('a') == $("a[href^='localhost'")) {
+    //     // $(toLinks).attr('href', 'http://www.comicvine.com/');
+    //   };
+
+    // });
     //get all link elements (with jquery, will return array)
     //loop over the array, check if it starts with comicvine, and if not, fix it.
+
   };
   //call search here
   addAJAXFunction()
-$('#save').click(function(event) {
-  /* save info to db in post route*/
-});
-
-
-
 
 
 

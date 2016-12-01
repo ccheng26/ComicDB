@@ -8,7 +8,12 @@
 </head>
 <body>
 <header id="header" class="header"> Comic DB
-<div class="resultContainer">
+  <form class="inputForm">
+    <input id="characterEntered" class ="searchIn" type="text">
+    <button id="submitButton" type="submit">Search</button>
+  </form>
+</header>
+<div class="resultContainer hide">
   <div class="results">
     <div class="profile">
       <div id="profileImg">
@@ -31,15 +36,19 @@
   </div>
 </div>
 
-  <form class="inputForm">
-    <input id="characterEntered" class ="searchIn" type="text">
-    <button id="submitButton" type="submit">Search</button>
-  </form>
-</header>
+
+
 
 <form class= "log" action ="/signup" method ="post">
 <div class="inputBox">
-
+  <p>Name</p>
+  <div>
+    <input name="yourname" type="text" class="inputStuff" id="yourname" placeholder="Your Name">
+  </div>
+  <p>Username</p>
+  <div>
+    <input name="username" type="text" class="inputStuff" id="username" placeholder="Username">
+  </div>
   <p>Email</p>
   <div>
     <input name="email" type="text" class="inputStuff" id="inputEmail" placeholder="Email">
@@ -48,7 +57,7 @@
   <div>
     <input name="password" type="password" class="inputStuff" id="inputPassword" placeholder="Password">
   </div>
-  <button type="submit" class="buttonLog">Join!</button>
+  <button type="submit" class="buttonLog" id= "signup">Sign Up!</button>
 </div>
 </form>
   <script src="../public/jquery.js"></script>

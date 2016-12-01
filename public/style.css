@@ -35,7 +35,6 @@ body{
 }
 .resultContainer{
   padding: 10px;
-  display: none;
 }
 .inputBox{
   padding: 10px;
@@ -55,10 +54,17 @@ body{
   background-repeat: no-repeat;
 
 }
-
+.favs{
+  display: inline-block;
+  padding: 20px;
+  width: 150px;
+  height: 150px;
+}
 .inputStuff{}
 
-
+.hide{
+  display: none;
+}
 
 .buttonLog{}
 

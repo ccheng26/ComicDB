@@ -13,21 +13,31 @@
     <button id="submitButton" type="submit">Search</button>
   </form>
 </header>
+<h1>Welcome to Comic DB!</h1>
+{{#logged_in}}
 <div class="inputBox">
-  <div class="border-container">
-    <h1>Welcome to Comic DB!</h1>
+
+    {{#users}}
+    <h4>Welcome {{name}}!</h4>
+    {{/users}}
+    <p>Here are your saved characters:</p>
+
+<div class="favs">
+    {{#searches}}
+
+    <img src="{{image}}">
+    <br>{{name}}
+
+    <form method="POST" action="/searches/{{id}}?_method=DELETE">
+    <button type="submit" id="delete">Delete</button>
+    </form>
+    {{/searches}}</div>
     <br>
-    {{#logged_in}}
-    <h4>Welcome {{email}}!</h4>
-    <p>Here is a thing!</p>
-  </div>
-  <p>Another Thing!</p>
   <a href="/logout">Logout!</a>
 </div>
-        {{/logged_in}}
-        {{^logged_in}}
-<form action="/login" method="post">
-<div class="resultContainer">
+
+
+<div class="resultContainer hide">
   <div class="results">
     <div class="profile">
       <div id="profileImg">
@@ -41,6 +51,34 @@
         <p id="publisher" class = "prof"> Publisher:
         </p>
         <button type="button" id= "save">Save Info</button>
+        <button type="button" id= "home">My Account</button>
+    </div>
+    <h1 id= "charTitle"></h1>
+    <p id="information">
+    </p>
+    <p id="des">
+    </p>
+  </div>
+</div>
+
+
+  {{/logged_in}}
+  {{^logged_in}} <!-- not logged in -->
+<form action="/login" method="post">
+<div class="resultContainer hide">
+  <div class="results">
+    <div class="profile">
+      <div id="profileImg">
+      </div>
+        <p id="realName" class = "prof"> Real Name:
+        </p><hr>
+        <p id="aliases" class = "prof"> Aliases:
+        </p><hr>
+        <p id="dob" class = "prof"> DOB:
+        </p><hr>
+        <p id="publisher" class = "prof"> Publisher:
+        </p>
+<!--<button type="button" id= "save">Save Info</button> -->
     </div>
     <h1 id= "charTitle"></h1>
     <p id="information">
@@ -50,6 +88,7 @@
   </div>
 </div>
 <div class="inputBox">
+
   <p>Email</p>
   <div>
     <input name="email" type="text" class="inputStuff" id="inputEmail" placeholder="Email">
