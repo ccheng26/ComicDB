@@ -2,7 +2,7 @@ const express = require('express'),
   app= express(),
   mustache = require('mustache-express'),
   pgp = require('pg-promise')(),
-  db = pgp('postgres://student_03@localhost:5432/comicdb'),
+  db = pgp(process.env.DATABASE_URL) || pgp ('postgres://student_03@localhost:5432/comicdb'),
   port = 3000,
   metOver= require('method-override'),
   bodParse = require('body-parser'),
@@ -181,7 +181,7 @@ app.put('/user/:id',function(req,res){
     [user.name, user.username, id]);
   res.redirect('/home')
 })
-
-app.listen(3000, function(){
+var port= process.env.PORT || 3000
+app.listen(port, function(){
   console.log('Server is alive on 3000')
 });
