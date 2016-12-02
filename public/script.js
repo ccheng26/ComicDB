@@ -34,6 +34,8 @@ console.log("script loaded")
     $('#profileImg').css('background-image', 'url("'+ imageData+'")')
     var overview=data.results[0].deck;
     var description=data.results[0].description;
+
+
     //profile data
     var realName= data.results[0].real_name;
     var aliases= data.results[0].aliases;
@@ -51,6 +53,14 @@ console.log("script loaded")
     $('#dob').html("DOB: "+ dob);
     $('#publisher').html("Publisher: " + publisher);
 
+    //fixing broken links and redirecting them to the comic vine page
+    $('a').each(function(index, el) {
+      var path = $(el).attr('href')
+      //if href starts with http://stackoverflow.com/questions/5102315/jquery-href-attribute-starting-with-tag
+      if (path !== $("a[href^='http']")) {
+        $(el).attr('href', 'http://www.comicvine.com'+path);
+      };
+    });
      /* save info to db in post route*/
     $('#save').click(function(event) {
       var saveData = {
@@ -63,40 +73,24 @@ console.log("script loaded")
         method: 'post',
         data: saveData
       })
+      alert("Character Saved!")
     });
-
+    //changing locations onclick
     $('#home').click(function(event) {
       window.location.replace("/home");
+    });
 
-    //   // location.reload();
-    //   $('.resultContainer').removeClass('hide');
-    //     $('.inputBox').css('display','block');
-    //     console.log('go')
-
-    //   $.ajax({
-    //     url: '/home',
-    //     method: 'get',
-    //     success: function(){
-    //       window.location.href= "localhost:3000/home"
-    //     }
-    // })
-  });
-
-    // var toLinks = $('a')
-    // $.each(function(index, el) {
-    //   // console.log(el)
-    //   if ( ('a') == $("a[href^='localhost'")) {
-    //     // $(toLinks).attr('href', 'http://www.comicvine.com/');
-    //   };
-
-    // });
-    //get all link elements (with jquery, will return array)
-    //loop over the array, check if it starts with comicvine, and if not, fix it.
 
   };
   //call search here
   addAJAXFunction()
-
-
-
+  // $('#signup').click(function(event){
+  //   alert("Thanks for signing up with us!")
+  // })
+  $('#account').click(function(event) {
+    window.location.replace("/user");
+  });
+  // $('#update').click(function(event){
+  //   alert("User information updated!")
+  // })
 })

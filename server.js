@@ -68,7 +68,7 @@ app.use(session({
 // })
 
 app.get("/search",function(req,res){
-  res.render('search')
+  res.render('index')
 })
 
 app.get("/",function(req,res){
@@ -121,27 +121,9 @@ app.post('/login', function(req, res){
     bcrypt.compare(data.password, user.password_digest, function(err, cmp){
       if(cmp){
         req.session.user = user;
-        // console.log(user)
-        // db.one("SELECT * FROM searches WHERE emailid = $1",[user.id]).then(function(data){
-        //   console.log('found: '+ data)
-        // })
-
         res.redirect('/home')
-        // if(err){
-        //   res.redirect('/')
-        // } else {
-        //       db.many("SELECT * FROM searches").then(function(data){
-        //       var logged_in =true;
-        //       var favSearch= {
-        //       "searches": data,
-        //       "logged_in": logged_in
-        //         }
-        //         res.redirect('/home')
-        //       })}
-
       } else {
         res.send('Email/Password not found.')
-
       }
     });
   });
@@ -152,9 +134,7 @@ app.get('/logout',function(req,res){
 })
 app.post('/save',function(req,res){
   var datab = req.body;
-  var users = req.session.user
-  console.log(req.body)
-  console.log('save route hit')
+  var users = req.session.user;
   db.none("INSERT INTO searches (name, image, emailid) VALUES ($1, $2, $3)", [datab.name, datab.image, users.id]);
   res.render('index')
 });
@@ -168,7 +148,6 @@ app.get('/save', function(req,res){
 
 app.get('/home',function(req,res){
   console.log('hit fav route')
-
   db.many("SELECT * FROM searches WHERE searches.emailid = $1", [req.session.user.id]).then(function(data){
       var logged_in =true;
       var favSearch= {
@@ -177,7 +156,6 @@ app.get('/home',function(req,res){
       }
     console.log(favSearch);
     res.render('index', favSearch);
-
   }).catch(function(){
     res.redirect('/')
   })
@@ -188,15 +166,24 @@ app.delete('/searches/:id',function(req,res){
   db.none("DELETE FROM searches WHERE id= $1", [id]).then(function(){
     res.redirect('/home')
   })
-
-  // res.redirect('/home')
 })
-app.put('/searches/:id',function(req,res){
-  searches= req.body
+app.get('/user',function(req,res){
+  db.many("SELECT * FROM users WHERE id = $1", [req.session.user.id]).then(function(data){
+      var logged_in =true;
+      var userData= {
+      "users": data,
+      "logged_in": logged_in
+      }
+    console.log(userData);
+    res.render('user', userData);})
+})
+//put
+app.put('/user/:id',function(req,res){
+  user= req.body
   id= req.params.id
-  db.none("UPDATE searches SET name =$1, image=$2",
-    [searches.name, searches.image])
-  res.redirect('/searches/'+id)
+  db.none("UPDATE users SET name=$1, username =$2 WHERE id = $3",
+    [user.name, user.username, id]);
+  res.redirect('/home')
 })
 
 app.listen(3000, function(){

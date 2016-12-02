@@ -38,6 +38,8 @@ body{
 }
 .inputBox{
   padding: 10px;
+  position: absolute;
+  width: 95%;
 }
 /* profile design, will float left */
 .profile{
@@ -48,7 +50,7 @@ body{
  /*  height: 600px; */
 }
 #profileImg{
-  height: 200px;
+  height: 250px;
   width: 200px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -59,9 +61,12 @@ body{
   padding: 20px;
   width: 150px;
   height: 150px;
+  position: relative;
 }
 .inputStuff{}
-
+h1{
+  padding-left: 10px;
+}
 .hide{
   display: none;
 }

@@ -13,28 +13,28 @@
     <button id="submitButton" type="submit">Search</button>
   </form>
 </header>
-<div class="resultContainer">
-  <div class="results">
-    <div class="profile">
-      <div id="profileImg">
-      </div>
-        <p id="realName" class = "prof"> Real Name:
-        </p><hr>
-        <p id="aliases" class = "prof"> Aliases:
-        </p><hr>
-        <p id="dob" class = "prof"> DOB:
-        </p><hr>
-        <p id="publisher" class = "prof"> Publisher:
-        </p>
-        <button type="button" id= "save">Save Character</button>
-    </div>
-    <h1 id= "charTitle"></h1>
-    <p id="information">
-    </p>
-    <p id="des">
-    </p>
-  </div>
+<h1>Welcome to the Character Database!</h1>
+
+{{#logged_in}}
+<div class="inputBox">
+{{#users}}
+<form method="POST" action= "/user/{{id}}?_method=PUT">
+
+<h4>Welcome {{name}}!</h4>
+
+  <p>To change your information, and click update.</p>
+  Name: <input name="name" id="name" value="{{name}}"><br>
+  Username: <input name="username" id="username" value="{{username}}">
+
+ <button type="submit" id="update">Update Account</button>
+</form>
+{{/users}}
 </div>
+{{/logged_in}}
+
+{{^logged_in}}
+<p>not logged in</p>
+{{/logged_in}}
   <script src="../public/jquery.js"></script>
   <script src="../public/config.js"></script>
   <script src="../public/script.js"></script>

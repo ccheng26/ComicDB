@@ -13,16 +13,18 @@
     <button id="submitButton" type="submit">Search</button>
   </form>
 </header>
-<h1>Welcome to Comic DB!</h1>
+<h1>Welcome to the Character Database!</h1>
 {{#logged_in}}
 <div class="inputBox">
 
     {{#users}}
     <h4>Welcome {{name}}!</h4>
     {{/users}}
-    <p>Here are your saved characters:</p>
+<a href ="/user">Go to Account Page</a>
+<p>Here are your saved characters:</p>
 
 <div class="favs">
+
     {{#searches}}
 
     <img src="{{image}}">
@@ -50,7 +52,7 @@
         </p><hr>
         <p id="publisher" class = "prof"> Publisher:
         </p>
-        <button type="button" id= "save">Save Info</button>
+        <button type="button" id= "save">Save Character</button>
         <button type="button" id= "home">My Account</button>
     </div>
     <h1 id= "charTitle"></h1>
@@ -98,8 +100,10 @@
     <input name="password" type="password" class="inputStuff" id="inputPassword" placeholder="Password">
   </div>
   <button type="submit" class="buttonLog">Login!</button>
+  <br>
+<p>Not a member? <a href="/signup">Sign Up!</a></p>
 </div>
-<p>Not a member? <a href="/signup">Sign Up!</a></p></div> {{/logged_in}}
+ {{/logged_in}}
 
 
 </div>
