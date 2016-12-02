@@ -8,7 +8,7 @@ const express = require('express'),
   session = require('express-session'),
   bcrypt= require('bcryptjs');
 
-var MY_KEY= process.env.MY_KEY;
+
   // flash= require('express-flash-notification'),
   // cookieParser= require('cookie-parser'),
   // fetch= require('node-fetch');
@@ -186,3 +186,5 @@ var port = process.env.PORT || 3000
 app.listen(port, function() {
   console.log('Server running on port 3000');
 });
+
+var MY_KEY= process.env.MY_KEY;
