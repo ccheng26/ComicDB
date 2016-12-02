@@ -21,7 +21,7 @@ The second one didn't happen.
 **Technologies Used**:
 * HTML: to render the server in browser
 * CSS: page formatting
-* JavaScript: page funcationality
+* JavaScript: page functionality
   * jQuery: selecting items, appending them to the dom, running onclick functions such as ajax calls (getting data from external api)
   * node package manager: package installation
 	* express: standard framework for site post and get requests
@@ -40,7 +40,7 @@ The second one didn't happen.
 * Created routes for items 
  * started with search route, to make sure ajax calls were working correctly, click listener added to page and render the results in browser
  * moved onto signup route for get and post information to a database table
- * used the same process for posting information to save item data to a seperate table
+ * used the same process for posting information to save item data to a separate table
  * created login route to check on user sessions, passwords and emails would be compared before allowing login and remembers user session until logout
  * changed page renders and redirects
 * Uploaded to Heroku

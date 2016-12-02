@@ -149,7 +149,7 @@ app.get('/home',function(req,res){
       "searches": data,
       "logged_in": logged_in
       }
-    console.log(favSearch);
+    // console.log(favSearch);
     res.render('index', favSearch);
   }).catch(function(){
     res.redirect('/')
@@ -157,7 +157,6 @@ app.get('/home',function(req,res){
 })
 //deletes a search
 app.delete('/searches/:id',function(req,res){
-  console.log('work')
   id=req.params.id
   db.none("DELETE FROM searches WHERE id= $1", [id]).then(function(){
     res.redirect('/home')
@@ -171,7 +170,7 @@ app.get('/user',function(req,res){
       "users": data,
       "logged_in": logged_in
       }
-    console.log(userData);
+    // console.log(userData);
     res.render('user', userData);})
 })
 //put method, updates the users name and username
