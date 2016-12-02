@@ -2,10 +2,10 @@ $(document).ready(function(){
 console.log("script loaded")
 //ajax request to search character via comic vine api
   var getData = function(nameSearch){
-    var appID= config.MY_KEY;
+    // var appID= config.MY_KEY;
     //info on hiding api keys https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
     return $.ajax({
-      url: 'http://comicvine.com/api/search/?api_key=' + appID +'&query=' + nameSearch + '&format=json',
+      url: 'http://comicvine.com/api/search/?api_key=' + MY_KEY +'&query=' + nameSearch + '&format=json',
       method: 'GET',
       success: function(data){
         console.log(data);
