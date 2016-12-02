@@ -4,7 +4,7 @@ console.log("script loaded")
   var getData = function(nameSearch){
     // var appID= config.MY_KEY;
     //info on hiding api keys https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
-
+    var MY_KEY= process.env.MY_KEY;
     return $.ajax({
       url: 'http://comicvine.com/api/search/?api_key=' + MY_KEY +'&query=' + nameSearch + '&format=json',
       method: 'GET',
