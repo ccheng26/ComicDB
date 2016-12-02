@@ -20,13 +20,12 @@
     {{#users}}
     <h4>Welcome {{name}}!</h4>
     {{/users}}
-<a href ="/user">Go to Account Page</a>
-<p>Here are your saved characters:</p>
+<button type= "button" id = "account">Go to Account Page</button>
+<p>Use the search function in the top right to find and add a character</p>
 
 <div class="favs">
-
+<p id= "nothing" class="hide">Your saved characters:</p>
     {{#searches}}
-
     <img src="{{image}}">
     <br>{{name}}
 
@@ -101,6 +100,8 @@
   </div>
   <button type="submit" class="buttonLog">Login!</button>
   <br>
+  <p>You can still use our search function without logging in. But for optimal viewing, please sign in.</p>
+
 <p>Not a member? <a href="/signup">Sign Up!</a></p>
 </div>
  {{/logged_in}}

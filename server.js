@@ -7,10 +7,10 @@ const express = require('express'),
   metOver= require('method-override'),
   bodParse = require('body-parser'),
   session = require('express-session'),
-  bcrypt= require('bcryptjs'),
-  flash= require('express-flash-notification'),
-  cookieParser= require('cookie-parser')
-  fetch= require('node-fetch');
+  bcrypt= require('bcryptjs');
+  // flash= require('express-flash-notification'),
+  // cookieParser= require('cookie-parser'),
+  // fetch= require('node-fetch');
 
 // fetch('https://comicvine.gamespot.com/')
 //     .then(function(res) {
@@ -90,33 +90,28 @@ app.get("/signup",function(req,res){
   res.render('signup')
 })
 
+//saves user to the database.
 app.post('/signup',function(req,res){
   var data = req.body; //body parser lets us get the data
-  //second argument is the number of times you salt it, last argument it takes is a function
+// object, salt amount, and what we're doing with the object
   bcrypt.hash(data.password, 10, function(err,hash){
     db.none(
       "INSERT INTO users (name, username, email, password_digest) VALUES ($1, $2, $3, $4)",
       [data.yourname, data.username, data.email, hash])
-    // .then(
-    // db.none(
-    //   "INSERT INTO searches(email.id) VALUES ($1)", [data.emailid]
-    // ))
     .then(function(){
         res.render('index');
-        // req.flash('messages', {'success': 'Thanks for Signing Up!'})
-        // res.redirect('index');
       });
   });
 });
-//Save user to the database.
-  //encrypting; hashed pws will always have the same length
+
+//logs user into server
 app.post('/login', function(req, res){
   var data = req.body;
   db.one(
     "SELECT * FROM users WHERE email = $1",
     [data.email]
   ).catch(function(){
-    res.send('Email/Password not found. <br>'+'<a href= localhost:3000> Try again</a>')
+    res.send('Email/Password not found.')
   }).then(function(user){
     bcrypt.compare(data.password, user.password_digest, function(err, cmp){
       if(cmp){
@@ -128,7 +123,7 @@ app.post('/login', function(req, res){
     });
   });
 });
-
+//logs out
 app.get('/logout',function(req,res){
   res.render('index')
 })
@@ -145,7 +140,7 @@ app.get('/save', function(req,res){
     res.render('index', searchList);
   })
 })
-
+//checks user's saved items
 app.get('/home',function(req,res){
   console.log('hit fav route')
   db.many("SELECT * FROM searches WHERE searches.emailid = $1", [req.session.user.id]).then(function(data){
@@ -160,6 +155,7 @@ app.get('/home',function(req,res){
     res.redirect('/')
   })
 })
+//deletes a search
 app.delete('/searches/:id',function(req,res){
   console.log('work')
   id=req.params.id
@@ -167,6 +163,7 @@ app.delete('/searches/:id',function(req,res){
     res.redirect('/home')
   })
 })
+//gets the user information
 app.get('/user',function(req,res){
   db.many("SELECT * FROM users WHERE id = $1", [req.session.user.id]).then(function(data){
       var logged_in =true;
@@ -177,7 +174,7 @@ app.get('/user',function(req,res){
     console.log(userData);
     res.render('user', userData);})
 })
-//put
+//put method, updates the users name and username
 app.put('/user/:id',function(req,res){
   user= req.body
   id= req.params.id

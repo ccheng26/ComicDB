@@ -73,7 +73,8 @@ console.log("script loaded")
         method: 'post',
         data: saveData
       })
-      alert("Character Saved!")
+      alert("Character Saved!");
+      $('#nothing').removeClass('hide');
     });
     //changing locations onclick
     $('#home').click(function(event) {
@@ -84,13 +85,13 @@ console.log("script loaded")
   };
   //call search here
   addAJAXFunction()
-  // $('#signup').click(function(event){
-  //   alert("Thanks for signing up with us!")
-  // })
+  $('#signup').click(function(event){
+    alert("Thanks for signing up with us!")
+  })
   $('#account').click(function(event) {
     window.location.replace("/user");
   });
-  // $('#update').click(function(event){
-  //   alert("User information updated!")
-  // })
+  $('#update').click(function(event){
+    alert("User information updated!")
+  })
 })
