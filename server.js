@@ -7,6 +7,8 @@ const express = require('express'),
   bodParse = require('body-parser'),
   session = require('express-session'),
   bcrypt= require('bcryptjs');
+
+var MY_KEY= process.env.MY_KEY;
   // flash= require('express-flash-notification'),
   // cookieParser= require('cookie-parser'),
   // fetch= require('node-fetch');
