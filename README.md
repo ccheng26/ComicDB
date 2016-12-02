@@ -21,6 +21,7 @@ As someone who hasn't been in (or is new) the graphic novel scene, I want to be 
 
 **The Approach Taken**:
 + Started with API research, upon deciding on an idea, started user stories
++ Retrieved information from the [Comic Vine API](http://comicvine.gamespot.com/api/)
 + Established table structure based on information needed for display, then began [wireframing](http://imgur.com/a/fRhSn)
 + Began coding JavaScript ajax calls and working on the client side display
 + Created routes for items 
@@ -51,6 +52,6 @@ As someone who hasn't been in (or is new) the graphic novel scene, I want to be 
 Creating an alert for page errors was an issue (via express-flash), I was able to hack this by displaying an alert before a page redirect, but for a catch I would've liked to implement some notification as opposed to a sent page. There were several issues targeting specific resources in the API.
 
 
-Special Thanks to the Stack Overflow community, various students, instructors, and instructional assistants at GA who've tested my site and helped with code revisions along the way. This site wouldn't have been possible without their help and the ridiculous amount of things I've learned from the previous homework assignments.
+Special Thanks to the Developers at GameSpot/Comic Vine, the Stack Overflow community, various students, instructors, and instructional assistants at GA who've tested my site and helped with code revisions along the way. This site wouldn't have been possible without their help and the ridiculous amount of things I've learned from the previous homework assignments.
 
 
