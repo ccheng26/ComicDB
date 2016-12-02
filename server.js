@@ -180,7 +180,7 @@ app.put('/user/:id',function(req,res){
     [user.name, user.username, id]);
   res.redirect('/home')
 })
-var port= process.env.PORT || 3000;
-app.listen(port, function(){
+var port= process.env.PORT || 3000
+app.listen(process.env.PORT || 3000, function(){
   console.log('Server is alive on 3000')
 });
