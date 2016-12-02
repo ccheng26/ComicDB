@@ -46,7 +46,7 @@ body{
   float: right;
   padding: 10px;
   border: 2px double black;
-  width: 220px;
+  width: 210px;
  /*  height: 600px; */
 }
 #profileImg{
@@ -54,6 +54,8 @@ body{
   width: 200px;
   background-size: contain;
   background-repeat: no-repeat;
+  margin-right: auto;
+  margin-left: auto;
 
 }
 .favs{
@@ -66,6 +68,9 @@ body{
 .inputStuff{}
 h1{
   padding-left: 10px;
+}
+#charTitle{
+  padding-left: 0px;
 }
 .hide{
   display: none;
